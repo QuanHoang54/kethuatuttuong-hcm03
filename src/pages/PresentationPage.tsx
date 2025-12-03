@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, BookOpen, Shield, MessageCircle, X } from 'lucide-react';
+import { ArrowLeft, BookOpen, Shield, MessageCircle, X, ChevronUp, ChevronDown } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function PresentationPage() {
@@ -92,8 +92,32 @@ export default function PresentationPage() {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <div className="min-h-screen bg-white relative">
+    <div className="min-h-screen relative">
+      <div className="fixed inset-0 z-0">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: 'url(/image.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            opacity: 0.15
+          }}
+        ></div>
+        <div className="absolute inset-0 bg-white/90"></div>
+        <div className="absolute inset-0 opacity-[0.08] pointer-events-none">
+          <div className="absolute top-20 left-10 text-6xl animate-float">🥁</div>
+          <div className="absolute top-40 right-20 text-5xl animate-float-delay-1">🌸</div>
+          <div className="absolute top-[60%] left-[15%] text-7xl animate-float-delay-2">⭐</div>
+          <div className="absolute top-[30%] right-[10%] text-6xl animate-float">🏛️</div>
+          <div className="absolute bottom-40 left-[20%] text-5xl animate-float-delay-1">🇻🇳</div>
+          <div className="absolute bottom-60 right-[25%] text-6xl animate-float-delay-2">📚</div>
+        </div>
+      </div>
       <div className="fixed left-8 top-1/2 -translate-y-1/2 z-40 hidden lg:block">
         <div className={`soldier-character ${isJumping ? 'soldier-jump' : ''}`} style={{ transform: `translateY(${soldierPosition * 2}px)` }}>
           <div className="relative">
@@ -210,10 +234,30 @@ export default function PresentationPage() {
                   )}
                 </div>
               </div>
-              <div className="h-1 bg-gradient-to-r from-[#FFD700] to-[#b30000] rounded-full mb-8"></div>
-              <h2 className="text-3xl font-bold text-[#b30000] mb-6">
-                PHẦN 1: DẪN NHẬP – TỪ BỐI CẢNH LỊCH SỬ ĐẾN NHIỆM VỤ THỜI ĐẠI
-              </h2>
+              <div className="relative mb-8 overflow-hidden rounded-2xl bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF6347] p-8 shadow-xl">
+                <div className="absolute inset-0 opacity-10">
+                  <div className="absolute top-2 left-4 text-6xl">📚</div>
+                  <div className="absolute bottom-2 right-4 text-6xl">🗺️</div>
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-8xl">🇻🇳</div>
+                </div>
+                <div className="relative z-10 flex items-center gap-4">
+                  <div className="text-6xl">📖</div>
+                  <div>
+                    <div className="text-sm font-semibold text-[#8B4513] mb-1">PHẦN 1</div>
+                    <h2 className="text-3xl font-bold text-white drop-shadow-lg">
+                      DẪN NHẬP – TỪ BỐI CẢNH LỊCH SỬ ĐẾN NHIỆM VỤ THỜI ĐẠI
+                    </h2>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mb-6 relative">
+                <img
+                  src="/ho-chi-minh-reading-book-studying-marxism-leninism.jpg"
+                  alt="Bác Hồ nghiên cứu"
+                  className="w-full max-w-md float-right ml-6 mb-4 rounded-xl shadow-lg"
+                />
+              </div>
               <p className="text-gray-800 leading-relaxed mb-4">
                 <strong>Kính thưa thầy/cô và các bạn,</strong>
               </p>
@@ -223,11 +267,29 @@ export default function PresentationPage() {
               <p className="text-gray-800 leading-relaxed mb-4">
                 Lúc bấy giờ, sau khi xâm lược Việt Nam, thực dân Pháp không chỉ dùng quân sự để thống trị mà còn thi hành nhiều chính sách cực kỳ thâm độc về văn hóa:
               </p>
-              <ul className="list-disc list-inside space-y-3 mb-4 text-gray-800">
-                <li><strong>Chính sách ngu dân:</strong> hạn chế mở trường, không cho dân ta học cao, chỉ đào tạo một tầng lớp tay sai phục vụ chính quyền thực dân.</li>
-                <li><strong>Chính sách đồng hóa:</strong> truyền bá lối sống, tư tưởng, thói quen, thị hiếu của văn hóa Pháp với mục đích làm "nhạt nhòa" bản sắc Việt.</li>
-                <li><strong>Chính sách chia rẽ tinh thần dân tộc:</strong> xuyên tạc lịch sử, thay đổi chương trình giáo dục, hạ thấp giá trị của tổ tiên ta.</li>
-              </ul>
+              <div className="space-y-4 mb-4">
+                <div className="flex gap-3 items-start bg-red-50 p-4 rounded-lg border-l-4 border-red-600">
+                  <div className="text-3xl flex-shrink-0">🚫</div>
+                  <div>
+                    <strong className="text-red-700">Chính sách ngu dân:</strong>
+                    <p className="text-gray-800 mt-1">hạn chế mở trường, không cho dân ta học cao, chỉ đào tạo một tầng lớp tay sai phục vụ chính quyền thực dân.</p>
+                  </div>
+                </div>
+                <div className="flex gap-3 items-start bg-orange-50 p-4 rounded-lg border-l-4 border-orange-600">
+                  <div className="text-3xl flex-shrink-0">🎭</div>
+                  <div>
+                    <strong className="text-orange-700">Chính sách đồng hóa:</strong>
+                    <p className="text-gray-800 mt-1">truyền bá lối sống, tư tưởng, thói quen, thị hiếu của văn hóa Pháp với mục đích làm "nhạt nhòa" bản sắc Việt.</p>
+                  </div>
+                </div>
+                <div className="flex gap-3 items-start bg-amber-50 p-4 rounded-lg border-l-4 border-amber-600">
+                  <div className="text-3xl flex-shrink-0">⚠️</div>
+                  <div>
+                    <strong className="text-amber-700">Chính sách chia rẽ tinh thần dân tộc:</strong>
+                    <p className="text-gray-800 mt-1">xuyên tạc lịch sử, thay đổi chương trình giáo dục, hạ thấp giá trị của tổ tiên ta.</p>
+                  </div>
+                </div>
+              </div>
               <p className="text-gray-800 leading-relaxed mb-4">
                 <strong>Thực dân không chỉ muốn chiếm đất mà còn muốn chiếm luôn linh hồn và trí tuệ dân tộc.</strong>
               </p>
@@ -245,9 +307,26 @@ export default function PresentationPage() {
                   Bác nói: <strong>"Văn hóa nghệ thuật cũng là một mặt trận. Anh chị em là chiến sĩ trên mặt trận ấy."</strong>
                 </p>
               </div>
-              <p className="text-gray-800 leading-relaxed mb-4">
+              <p className="text-gray-800 leading-relaxed mb-6">
                 Ngày nay, chúng ta không còn đối mặt với súng đạn, nhưng vẫn đang đứng trên mặt trận văn hóa mới, nơi kẻ thù không phải quân xâm lược mà là những thói hư tật xấu âm thầm gặm nhấm con người. Cuộc chiến này lặng lẽ hơn, nhưng hậu quả của nó cũng nặng nề không kém.
               </p>
+
+              <div className="flex justify-between items-center mt-8 pt-6 border-t-2 border-[#FFD700]">
+                <button
+                  onClick={scrollToTop}
+                  className="flex items-center gap-2 px-6 py-3 bg-[#FFD700] text-[#b30000] rounded-full font-semibold hover:scale-105 hover:shadow-lg transition-all"
+                >
+                  <ChevronUp size={20} />
+                  Về Đầu Trang
+                </button>
+                <button
+                  onClick={() => scrollToSection('section2')}
+                  className="flex items-center gap-2 px-6 py-3 bg-[#b30000] text-white rounded-full font-semibold hover:scale-105 hover:shadow-lg transition-all"
+                >
+                  Phần Tiếp Theo
+                  <ChevronDown size={20} />
+                </button>
+              </div>
             </section>
 
             <section id="section2" className="fade-in-section mb-16 relative">
@@ -292,10 +371,22 @@ export default function PresentationPage() {
                   )}
                 </div>
               </div>
-              <div className="h-1 bg-gradient-to-r from-[#FFD700] to-[#b30000] rounded-full mb-8"></div>
-              <h2 className="text-3xl font-bold text-[#b30000] mb-6">
-                PHẦN 2: NHẬN DIỆN "KẺ THÙ" – GIẶC NỘI XÂM LÀ AI?
-              </h2>
+              <div className="relative mb-8 overflow-hidden rounded-2xl bg-gradient-to-r from-[#DC143C] via-[#b30000] to-[#8B0000] p-8 shadow-xl">
+                <div className="absolute inset-0 opacity-10">
+                  <div className="absolute top-2 left-4 text-6xl">⚔️</div>
+                  <div className="absolute bottom-2 right-4 text-6xl">🛡️</div>
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-8xl">⚠️</div>
+                </div>
+                <div className="relative z-10 flex items-center gap-4">
+                  <div className="text-6xl">🎯</div>
+                  <div>
+                    <div className="text-sm font-semibold text-yellow-200 mb-1">PHẦN 2</div>
+                    <h2 className="text-3xl font-bold text-white drop-shadow-lg">
+                      NHẬN DIỆN "KẺ THÙ" – GIẶC NỘI XÂM LÀ AI?
+                    </h2>
+                  </div>
+                </div>
+              </div>
               <p className="text-gray-800 leading-relaxed mb-4">
                 Giặc nội xâm, theo tư tưởng Hồ Chí Minh, là những thói xấu trong chính con người Việt Nam, từ đó phá hoại phẩm chất đạo đức và làm suy yếu sức mạnh dân tộc.
               </p>
@@ -307,58 +398,92 @@ export default function PresentationPage() {
               </p>
 
               <div className="space-y-6 mb-6">
-                <div className="bg-gradient-to-r from-red-50 to-white p-6 rounded-xl shadow-md">
-                  <h3 className="text-xl font-bold text-[#b30000] mb-3">1. Tham ô – lãng phí – tệ nạn mùa nào cũng có</h3>
-                  <ul className="list-disc list-inside space-y-2 text-gray-800">
-                    <li><strong>Tham ô</strong> làm mất niềm tin của nhân dân.</li>
-                    <li><strong>Lãng phí</strong> làm thất thoát của công, của dân, của nước.</li>
-                  </ul>
-                  <p className="text-gray-800 mt-3">
-                    Đáng sợ hơn, tham ô "mọc rễ" từ những hành vi rất nhỏ: gian lận trong lớp, chấm công hộ, sử dụng tiền quỹ sai mục đích, tiêu xài hoang phí đồng tiền của cha mẹ.
-                  </p>
+                <div className="bg-gradient-to-r from-red-50 to-white p-6 rounded-xl shadow-md border-l-8 border-red-600 relative overflow-hidden">
+                  <div className="absolute top-4 right-4 text-6xl opacity-10">💰</div>
+                  <div className="flex items-start gap-4">
+                    <div className="text-5xl">💰</div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-[#b30000] mb-3">1. Tham ô – lãng phí – tệ nạn mùa nào cũng có</h3>
+                      <div className="space-y-2 mb-3">
+                        <div className="flex items-center gap-2">
+                          <span className="text-xl">🚨</span>
+                          <p className="text-gray-800"><strong>Tham ô</strong> làm mất niềm tin của nhân dân.</p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-xl">💸</span>
+                          <p className="text-gray-800"><strong>Lãng phí</strong> làm thất thoát của công, của dân, của nước.</p>
+                        </div>
+                      </div>
+                      <p className="text-gray-800 mt-3 bg-white/70 p-3 rounded-lg">
+                        Đáng sợ hơn, tham ô "mọc rễ" từ những hành vi rất nhỏ: gian lận trong lớp, chấm công hộ, sử dụng tiền quỹ sai mục đích, tiêu xài hoang phí đồng tiền của cha mẹ.
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="bg-gradient-to-r from-red-50 to-white p-6 rounded-xl shadow-md">
-                  <h3 className="text-xl font-bold text-[#b30000] mb-3">2. Lười biếng – quan liêu – bệnh mãn tính của nhiều thế hệ</h3>
-                  <ul className="list-disc list-inside space-y-2 text-gray-800">
-                    <li>Lười làm việc, lười học, lười suy nghĩ → dẫn đến phụ thuộc, thụ động, trì trệ.</li>
-                    <li>Quan liêu là thói làm việc hình thức, xa rời thực tế, thiếu trách nhiệm.</li>
-                  </ul>
-                  <p className="text-gray-800 mt-3">
-                    <strong>Một người trẻ lười biếng hôm nay → một cán bộ quan liêu ngày mai.</strong>
-                  </p>
+                <div className="bg-gradient-to-r from-orange-50 to-white p-6 rounded-xl shadow-md border-l-8 border-orange-600 relative overflow-hidden">
+                  <div className="absolute top-4 right-4 text-6xl opacity-10">😴</div>
+                  <div className="flex items-start gap-4">
+                    <div className="text-5xl">😴</div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-orange-700 mb-3">2. Lười biếng – quan liêu – bệnh mãn tính của nhiều thế hệ</h3>
+                      <div className="space-y-2 mb-3">
+                        <div className="flex items-center gap-2">
+                          <span className="text-xl">⏰</span>
+                          <p className="text-gray-800">Lười làm việc, lười học, lười suy nghĩ → dẫn đến phụ thuộc, thụ động, trì trệ.</p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-xl">📄</span>
+                          <p className="text-gray-800">Quan liêu là thói làm việc hình thức, xa rời thực tế, thiếu trách nhiệm.</p>
+                        </div>
+                      </div>
+                      <p className="text-gray-800 mt-3 bg-white/70 p-3 rounded-lg">
+                        <strong>Một người trẻ lười biếng hôm nay → một cán bộ quan liêu ngày mai.</strong>
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="bg-gradient-to-r from-red-50 to-white p-6 rounded-xl shadow-md">
-                  <h3 className="text-xl font-bold text-[#b30000] mb-3">3. Phù hoa – xa xỉ</h3>
-                  <p className="text-gray-800 mb-3">
-                    Đây là căn bệnh phổ biến nhất trong giới trẻ:
-                  </p>
-                  <ul className="list-disc list-inside space-y-2 text-gray-800">
-                    <li>sống ảo, khoe của</li>
-                    <li>chạy theo trend độc hại</li>
-                    <li>coi trọng hình thức hơn năng lực</li>
-                    <li>"sống sang chảnh ảo" nhưng bên trong rỗng</li>
-                  </ul>
-                  <p className="text-gray-800 mt-3">
-                    <strong>Hậu quả:</strong> Con người đánh mất giá trị thật, trở thành "nô lệ" của mạng xã hội.
-                  </p>
+                <div className="bg-gradient-to-r from-purple-50 to-white p-6 rounded-xl shadow-md border-l-8 border-purple-600 relative overflow-hidden">
+                  <div className="absolute top-4 right-4 text-6xl opacity-10">💎</div>
+                  <div className="flex items-start gap-4">
+                    <div className="text-5xl">💎</div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-purple-700 mb-3">3. Phù hoa – xa xỉ</h3>
+                      <p className="text-gray-800 mb-3">Đây là căn bệnh phổ biến nhất trong giới trẻ:</p>
+                      <div className="space-y-2 mb-3">
+                        <div className="flex items-center gap-2"><span className="text-xl">📱</span><p className="text-gray-800">sống ảo, khoe của</p></div>
+                        <div className="flex items-center gap-2"><span className="text-xl">🎭</span><p className="text-gray-800">chạy theo trend độc hại</p></div>
+                        <div className="flex items-center gap-2"><span className="text-xl">✨</span><p className="text-gray-800">coi trọng hình thức hơn năng lực</p></div>
+                        <div className="flex items-center gap-2"><span className="text-xl">🎪</span><p className="text-gray-800">"sống sang chảnh ảo" nhưng bên trong rỗng</p></div>
+                      </div>
+                      <p className="text-gray-800 mt-3 bg-white/70 p-3 rounded-lg">
+                        <strong>Hậu quả:</strong> Con người đánh mất giá trị thật, trở thành "nô lệ" của mạng xã hội.
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="bg-gradient-to-r from-red-50 to-white p-6 rounded-xl shadow-md">
-                  <h3 className="text-xl font-bold text-[#b30000] mb-3">4. Tâm lý nô lệ – sự tha hóa nguy hiểm nhất</h3>
-                  <p className="text-gray-800 mb-3">
-                    <strong>"Tự ti – sính ngoại – mất gốc"</strong>
-                  </p>
-                  <p className="text-gray-800 ml-6 mb-2">
-                    → Nghe tiếng Việt thì ngại, nhưng nói tiếng nước ngoài sai vẫn tự hào.
-                  </p>
-                  <p className="text-gray-800 ml-6 mb-3">
-                    → Thích đi theo trào lưu phương Tây mù quáng nhưng lại thờ ơ văn hóa dân tộc.
-                  </p>
-                  <p className="text-gray-800">
-                    Hoặc ngược lại: bảo thủ, cực đoan, từ chối cái mới cũng là tâm lý nô lệ tinh thần.
-                  </p>
+                <div className="bg-gradient-to-r from-gray-100 to-white p-6 rounded-xl shadow-md border-l-8 border-gray-600 relative overflow-hidden">
+                  <div className="absolute top-4 right-4 text-6xl opacity-10">⛓️</div>
+                  <div className="flex items-start gap-4">
+                    <div className="text-5xl">⛓️</div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-gray-700 mb-3">4. Tâm lý nô lệ – sự tha hóa nguy hiểm nhất</h3>
+                      <p className="text-gray-800 mb-3">
+                        <strong>"Tự ti – sính ngoại – mất gốc"</strong>
+                      </p>
+                      <p className="text-gray-800 ml-6 mb-2">
+                        → Nghe tiếng Việt thì ngại, nhưng nói tiếng nước ngoài sai vẫn tự hào.
+                      </p>
+                      <p className="text-gray-800 ml-6 mb-3">
+                        → Thích đi theo trào lưu phương Tây mù quáng nhưng lại thờ ơ văn hóa dân tộc.
+                      </p>
+                      <p className="text-gray-800 bg-white/70 p-3 rounded-lg">
+                        Hoặc ngược lại: bảo thủ, cực đoan, từ chối cái mới cũng là tâm lý nô lệ tinh thần.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -417,10 +542,22 @@ export default function PresentationPage() {
                   )}
                 </div>
               </div>
-              <div className="h-1 bg-gradient-to-r from-[#FFD700] to-[#b30000] rounded-full mb-8"></div>
-              <h2 className="text-3xl font-bold text-[#b30000] mb-6">
-                PHẦN 3: VŨ KHÍ CHIẾN ĐẤU – "PHÒ CHÍNH TRỪ TÀ" & ĐỜI SỐNG MỚI
-              </h2>
+              <div className="relative mb-8 overflow-hidden rounded-2xl bg-gradient-to-r from-[#32CD32] via-[#228B22] to-[#006400] p-8 shadow-xl">
+                <div className="absolute inset-0 opacity-10">
+                  <div className="absolute top-2 left-4 text-6xl">⚖️</div>
+                  <div className="absolute bottom-2 right-4 text-6xl">🕯️</div>
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-8xl">✨</div>
+                </div>
+                <div className="relative z-10 flex items-center gap-4">
+                  <div className="text-6xl">⚔️</div>
+                  <div>
+                    <div className="text-sm font-semibold text-yellow-200 mb-1">PHẦN 3</div>
+                    <h2 className="text-3xl font-bold text-white drop-shadow-lg">
+                      VŨ KHÍ CHIẾN ĐẤU – "PHÒ CHÍNH TRỪ TÀ" & ĐỜI SỐNG MỚI
+                    </h2>
+                  </div>
+                </div>
+              </div>
 
               <h3 className="text-2xl font-bold text-[#8b0000] mb-4">1. "PHÒ CHÍNH TRỪ TÀ" – giá trị cốt lõi của mặt trận văn hóa</h3>
 
