@@ -243,8 +243,8 @@ export default function PresentationPage() {
                 <div className="relative z-10 flex items-center gap-4">
                   <div className="text-6xl">📖</div>
                   <div>
-                    <div className="text-sm font-semibold text-[#8B4513] mb-1">PHẦN 1</div>
-                    <h2 className="text-3xl font-bold text-white drop-shadow-lg">
+                    <div className="text-lg font-black text-[#FFD700] mb-2 tracking-wider" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>PHẦN 1</div>
+                    <h2 className="text-4xl font-black text-white" style={{textShadow: '3px 3px 6px rgba(0,0,0,0.9), 0 0 20px rgba(255,215,0,0.5)'}}>
                       DẪN NHẬP – TỪ BỐI CẢNH LỊCH SỬ ĐẾN NHIỆM VỤ THỜI ĐẠI
                     </h2>
                   </div>
@@ -380,8 +380,8 @@ export default function PresentationPage() {
                 <div className="relative z-10 flex items-center gap-4">
                   <div className="text-6xl">🎯</div>
                   <div>
-                    <div className="text-sm font-semibold text-yellow-200 mb-1">PHẦN 2</div>
-                    <h2 className="text-3xl font-bold text-white drop-shadow-lg">
+                    <div className="text-lg font-black text-[#FFD700] mb-2 tracking-wider" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>PHẦN 2</div>
+                    <h2 className="text-4xl font-black text-white" style={{textShadow: '3px 3px 6px rgba(0,0,0,0.9), 0 0 20px rgba(255,215,0,0.5)'}}>
                       NHẬN DIỆN "KẺ THÙ" – GIẶC NỘI XÂM LÀ AI?
                     </h2>
                   </div>
@@ -551,8 +551,8 @@ export default function PresentationPage() {
                 <div className="relative z-10 flex items-center gap-4">
                   <div className="text-6xl">⚔️</div>
                   <div>
-                    <div className="text-sm font-semibold text-yellow-200 mb-1">PHẦN 3</div>
-                    <h2 className="text-3xl font-bold text-white drop-shadow-lg">
+                    <div className="text-lg font-black text-[#FFD700] mb-2 tracking-wider" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>PHẦN 3</div>
+                    <h2 className="text-4xl font-black text-white" style={{textShadow: '3px 3px 6px rgba(0,0,0,0.9), 0 0 20px rgba(255,215,0,0.5)'}}>
                       VŨ KHÍ CHIẾN ĐẤU – "PHÒ CHÍNH TRỪ TÀ" & ĐỜI SỐNG MỚI
                     </h2>
                   </div>
@@ -672,7 +672,7 @@ export default function PresentationPage() {
                 </div>
               </div>
               <div className="h-1 bg-gradient-to-r from-[#FFD700] to-[#b30000] rounded-full mb-8"></div>
-              <h2 className="text-3xl font-bold text-[#b30000] mb-6">
+              <h2 className="text-4xl font-black text-[#b30000] mb-6" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.2)'}}>
                 PHẦN 4: VẬN DỤNG THỰC TIỄN – HÀNH ĐỘNG CỦA SINH VIÊN
               </h2>
               <p className="text-black font-semibold leading-relaxed mb-6">
@@ -764,11 +764,11 @@ export default function PresentationPage() {
                 </div>
               </div>
               <div className="h-1 bg-gradient-to-r from-[#FFD700] to-[#b30000] rounded-full mb-8"></div>
-              <h2 className="text-3xl font-bold text-[#b30000] mb-6">
+              <h2 className="text-4xl font-black text-[#b30000] mb-6" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.2)'}}>
                 PHẦN 5: KẾT LUẬN – MỖI SINH VIÊN LÀ MỘT CHIẾN SĨ
               </h2>
               <div className="bg-[#FFD700]/10 border-l-4 border-[#FFD700] p-6 rounded-r-lg mb-6">
-                <p className="text-gray-900 font-medium text-lg italic">
+                <p className="text-black font-semibold text-lg italic">
                   Hồ Chí Minh khẳng định: <strong>"Văn hoá soi đường cho quốc dân đi."</strong>
                 </p>
               </div>
@@ -796,14 +796,14 @@ export default function PresentationPage() {
 
             <section id="section6" className="fade-in-section mb-16">
               <div className="h-1 bg-gradient-to-r from-[#FFD700] to-[#b30000] rounded-full mb-8"></div>
-              <h2 className="text-3xl font-bold text-[#b30000] mb-6">
+              <h2 className="text-4xl font-black text-[#b30000] mb-6" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.2)'}}>
                 PHẦN 6: TÀI LIỆU THAM KHẢO & TRÍCH DẪN
               </h2>
 
-              <h3 className="text-2xl font-semibold text-[#8b0000] mb-4">
+              <h3 className="text-2xl font-black text-[#8b0000] mb-4">
                 Tài liệu tham khảo
               </h3>
-              <p className="text-gray-600 mb-6 italic">
+              <p className="text-gray-900 font-semibold mb-6 italic text-base">
                 Nguồn tư liệu và trích dẫn sử dụng trong bài trình chiếu
               </p>
 
