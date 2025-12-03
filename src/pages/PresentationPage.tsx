@@ -155,38 +155,38 @@ export default function PresentationPage() {
 
       <div className="pt-24 pb-12">
         <div className="container mx-auto px-6 max-w-4xl">
-          <div className="bg-gradient-to-r from-[#b30000] to-[#8b0000] p-12 rounded-3xl shadow-2xl mb-12 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <div className="bg-gradient-to-r from-[#b30000] to-[#8b0000] p-12 rounded-3xl shadow-2xl mb-12 text-center border-4 border-[#FFD700]">
+            <h1 className="text-4xl md:text-5xl font-black text-white mb-4 drop-shadow-lg" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.5)'}}>
               BÀI THUYẾT TRÌNH
             </h1>
-            <h2 className="text-2xl md:text-3xl text-[#FFD700] font-semibold">
+            <h2 className="text-2xl md:text-3xl text-[#FFD700] font-bold drop-shadow-md" style={{textShadow: '1px 1px 3px rgba(0,0,0,0.7)'}}>
               SINH VIÊN TRÊN "MẶT TRẬN VĂN HÓA" – CUỘC CHIẾN CHỐNG "GIẶC NỘI XÂM"
             </h2>
           </div>
 
-          <div className="bg-gray-50 p-8 rounded-2xl shadow-lg mb-12">
-            <h3 className="text-2xl font-bold text-[#b30000] mb-6 flex items-center gap-2">
-              <BookOpen size={28} />
-              Mục Lục
+          <div className="bg-white p-8 rounded-2xl shadow-2xl mb-12 border-4 border-[#FFD700]">
+            <h3 className="text-3xl font-black text-[#b30000] mb-6 flex items-center gap-2 drop-shadow-md">
+              <BookOpen size={32} />
+              MỤC LỤC
             </h3>
             <nav className="space-y-3">
-              <button onClick={() => scrollToSection('section1')} className="block w-full text-left px-4 py-3 bg-white rounded-lg hover:bg-[#FFD700]/20 hover:translate-x-2 transition-all">
-                <span className="font-semibold text-[#b30000]">Phần 1:</span> Dẫn Nhập – Từ Bối Cảnh Lịch Sử Đến Nhiệm Vụ Thời Đại
+              <button onClick={() => scrollToSection('section1')} className="block w-full text-left px-5 py-4 bg-gradient-to-r from-white to-gray-50 rounded-lg hover:bg-[#FFD700]/30 hover:translate-x-2 transition-all shadow-md border-2 border-gray-200 hover:border-[#FFD700]">
+                <span className="font-bold text-[#b30000] text-lg">Phần 1:</span> <span className="text-gray-900 font-semibold">Dẫn Nhập – Từ Bối Cảnh Lịch Sử Đến Nhiệm Vụ Thời Đại</span>
               </button>
-              <button onClick={() => scrollToSection('section2')} className="block w-full text-left px-4 py-3 bg-white rounded-lg hover:bg-[#FFD700]/20 hover:translate-x-2 transition-all">
-                <span className="font-semibold text-[#b30000]">Phần 2:</span> Nhận Diện "Kẻ Thù" – Giặc Nội Xâm Là Ai?
+              <button onClick={() => scrollToSection('section2')} className="block w-full text-left px-5 py-4 bg-gradient-to-r from-white to-gray-50 rounded-lg hover:bg-[#FFD700]/30 hover:translate-x-2 transition-all shadow-md border-2 border-gray-200 hover:border-[#FFD700]">
+                <span className="font-bold text-[#b30000] text-lg">Phần 2:</span> <span className="text-gray-900 font-semibold">Nhận Diện "Kẻ Thù" – Giặc Nội Xâm Là Ai?</span>
               </button>
-              <button onClick={() => scrollToSection('section3')} className="block w-full text-left px-4 py-3 bg-white rounded-lg hover:bg-[#FFD700]/20 hover:translate-x-2 transition-all">
-                <span className="font-semibold text-[#b30000]">Phần 3:</span> Vũ Khí Chiến Đấu – "Phò Chính Trừ Tà" & Đời Sống Mới
+              <button onClick={() => scrollToSection('section3')} className="block w-full text-left px-5 py-4 bg-gradient-to-r from-white to-gray-50 rounded-lg hover:bg-[#FFD700]/30 hover:translate-x-2 transition-all shadow-md border-2 border-gray-200 hover:border-[#FFD700]">
+                <span className="font-bold text-[#b30000] text-lg">Phần 3:</span> <span className="text-gray-900 font-semibold">Vũ Khí Chiến Đấu – "Phò Chính Trừ Tà" & Đời Sống Mới</span>
               </button>
-              <button onClick={() => scrollToSection('section4')} className="block w-full text-left px-4 py-3 bg-white rounded-lg hover:bg-[#FFD700]/20 hover:translate-x-2 transition-all">
-                <span className="font-semibold text-[#b30000]">Phần 4:</span> Vận Dụng Thực Tiễn – Hành Động Của Sinh Viên
+              <button onClick={() => scrollToSection('section4')} className="block w-full text-left px-5 py-4 bg-gradient-to-r from-white to-gray-50 rounded-lg hover:bg-[#FFD700]/30 hover:translate-x-2 transition-all shadow-md border-2 border-gray-200 hover:border-[#FFD700]">
+                <span className="font-bold text-[#b30000] text-lg">Phần 4:</span> <span className="text-gray-900 font-semibold">Vận Dụng Thực Tiễn – Hành Động Của Sinh Viên</span>
               </button>
-              <button onClick={() => scrollToSection('section5')} className="block w-full text-left px-4 py-3 bg-white rounded-lg hover:bg-[#FFD700]/20 hover:translate-x-2 transition-all">
-                <span className="font-semibold text-[#b30000]">Phần 5:</span> Kết Luận – Mỗi Sinh Viên Là Một Chiến Sĩ
+              <button onClick={() => scrollToSection('section5')} className="block w-full text-left px-5 py-4 bg-gradient-to-r from-white to-gray-50 rounded-lg hover:bg-[#FFD700]/30 hover:translate-x-2 transition-all shadow-md border-2 border-gray-200 hover:border-[#FFD700]">
+                <span className="font-bold text-[#b30000] text-lg">Phần 5:</span> <span className="text-gray-900 font-semibold">Kết Luận – Mỗi Sinh Viên Là Một Chiến Sĩ</span>
               </button>
-              <button onClick={() => scrollToSection('section6')} className="block w-full text-left px-4 py-3 bg-white rounded-lg hover:bg-[#FFD700]/20 hover:translate-x-2 transition-all">
-                <span className="font-semibold text-[#b30000]">Phần 6:</span> Tài Liệu Tham Khảo & Trích Dẫn
+              <button onClick={() => scrollToSection('section6')} className="block w-full text-left px-5 py-4 bg-gradient-to-r from-white to-gray-50 rounded-lg hover:bg-[#FFD700]/30 hover:translate-x-2 transition-all shadow-md border-2 border-gray-200 hover:border-[#FFD700]">
+                <span className="font-bold text-[#b30000] text-lg">Phần 6:</span> <span className="text-gray-900 font-semibold">Tài Liệu Tham Khảo & Trích Dẫn</span>
               </button>
             </nav>
           </div>
