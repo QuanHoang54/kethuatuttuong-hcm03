@@ -153,9 +153,9 @@ export default function PresentationPage() {
         </div>
       </nav>
 
-      <div className="pt-24 pb-12">
-        <div className="container mx-auto px-6 max-w-4xl">
-          <div className="bg-gradient-to-r from-[#b30000] to-[#8b0000] p-12 rounded-3xl shadow-2xl mb-12 text-center border-4 border-[#FFD700]">
+      <div className="pt-24 pb-12 min-h-screen" style={{backgroundImage: 'url("/image copy.png")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed'}}>
+        <div className="container mx-auto px-6 max-w-5xl relative">
+          <div className="bg-gradient-to-r from-[#b30000] to-[#8b0000] p-12 rounded-3xl shadow-2xl mb-12 text-center border-4 border-[#FFD700] backdrop-blur-sm bg-opacity-95">
             <h1 className="text-4xl md:text-5xl font-black text-white mb-4 drop-shadow-lg" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.5)'}}>
               BÀI THUYẾT TRÌNH
             </h1>
@@ -164,7 +164,7 @@ export default function PresentationPage() {
             </h2>
           </div>
 
-          <div className="bg-white p-8 rounded-2xl shadow-2xl mb-12 border-4 border-[#FFD700]">
+          <div className="bg-white/95 backdrop-blur-md p-8 rounded-2xl shadow-2xl mb-12 border-4 border-[#FFD700]">
             <h3 className="text-3xl font-black text-[#b30000] mb-6 flex items-center gap-2 drop-shadow-md">
               <BookOpen size={32} />
               MỤC LỤC
@@ -193,7 +193,7 @@ export default function PresentationPage() {
 
           <article className="prose prose-lg max-w-none">
             <section id="section1" className="fade-in-section mb-16 relative">
-              <div className="absolute -right-4 top-0 hidden xl:block">
+              <div className="absolute top-0 hidden xl:block" style={{right: '-200px'}}>
                 <div className="sticky top-24">
                   <button
                     onClick={() => setActiveChatBot(activeChatBot === 1 ? null : 1)}
@@ -234,7 +234,7 @@ export default function PresentationPage() {
                   )}
                 </div>
               </div>
-              <div className="relative mb-8 overflow-hidden rounded-2xl bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF6347] p-8 shadow-xl">
+              <div className="relative mb-8 overflow-hidden rounded-2xl bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF6347] p-8 shadow-xl backdrop-blur-md bg-opacity-90">
                 <div className="absolute inset-0 opacity-10">
                   <div className="absolute top-2 left-4 text-6xl">📚</div>
                   <div className="absolute bottom-2 right-4 text-6xl">🗺️</div>
@@ -243,8 +243,8 @@ export default function PresentationPage() {
                 <div className="relative z-10 flex items-center gap-4">
                   <div className="text-6xl">📖</div>
                   <div>
-                    <div className="text-lg font-black text-[#FFD700] mb-2 tracking-wider" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>PHẦN 1</div>
-                    <h2 className="text-4xl font-black text-white" style={{textShadow: '3px 3px 6px rgba(0,0,0,0.9), 0 0 20px rgba(255,215,0,0.5)'}}>
+                    <div className="text-base font-bold text-[#FFD700] mb-2 tracking-wider" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>PHẦN 1</div>
+                    <h2 className="text-3xl font-bold text-white" style={{textShadow: '3px 3px 6px rgba(0,0,0,0.9), 0 0 20px rgba(255,215,0,0.5)'}}>
                       DẪN NHẬP – TỪ BỐI CẢNH LỊCH SỬ ĐẾN NHIỆM VỤ THỜI ĐẠI
                     </h2>
                   </div>
@@ -268,21 +268,21 @@ export default function PresentationPage() {
                 Lúc bấy giờ, sau khi xâm lược Việt Nam, thực dân Pháp không chỉ dùng quân sự để thống trị mà còn thi hành nhiều chính sách cực kỳ thâm độc về văn hóa:
               </p>
               <div className="space-y-4 mb-4">
-                <div className="flex gap-3 items-start bg-red-50 p-4 rounded-lg border-l-4 border-red-600">
+                <div className="flex gap-3 items-start bg-red-50/90 backdrop-blur-sm p-4 rounded-lg border-l-4 border-red-600">
                   <div className="text-3xl flex-shrink-0">🚫</div>
                   <div>
                     <strong className="text-red-700">Chính sách ngu dân:</strong>
                     <p className="text-black font-semibold mt-1">hạn chế mở trường, không cho dân ta học cao, chỉ đào tạo một tầng lớp tay sai phục vụ chính quyền thực dân.</p>
                   </div>
                 </div>
-                <div className="flex gap-3 items-start bg-orange-50 p-4 rounded-lg border-l-4 border-orange-600">
+                <div className="flex gap-3 items-start bg-orange-50/90 backdrop-blur-sm p-4 rounded-lg border-l-4 border-orange-600">
                   <div className="text-3xl flex-shrink-0">🎭</div>
                   <div>
                     <strong className="text-orange-700">Chính sách đồng hóa:</strong>
                     <p className="text-black font-semibold mt-1">truyền bá lối sống, tư tưởng, thói quen, thị hiếu của văn hóa Pháp với mục đích làm "nhạt nhòa" bản sắc Việt.</p>
                   </div>
                 </div>
-                <div className="flex gap-3 items-start bg-amber-50 p-4 rounded-lg border-l-4 border-amber-600">
+                <div className="flex gap-3 items-start bg-amber-50/90 backdrop-blur-sm p-4 rounded-lg border-l-4 border-amber-600">
                   <div className="text-3xl flex-shrink-0">⚠️</div>
                   <div>
                     <strong className="text-amber-700">Chính sách chia rẽ tinh thần dân tộc:</strong>
@@ -330,7 +330,7 @@ export default function PresentationPage() {
             </section>
 
             <section id="section2" className="fade-in-section mb-16 relative">
-              <div className="absolute -right-4 top-0 hidden xl:block">
+              <div className="absolute top-0 hidden xl:block" style={{right: '-200px'}}>
                 <div className="sticky top-24">
                   <button
                     onClick={() => setActiveChatBot(activeChatBot === 2 ? null : 2)}
@@ -380,8 +380,8 @@ export default function PresentationPage() {
                 <div className="relative z-10 flex items-center gap-4">
                   <div className="text-6xl">🎯</div>
                   <div>
-                    <div className="text-lg font-black text-[#FFD700] mb-2 tracking-wider" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>PHẦN 2</div>
-                    <h2 className="text-4xl font-black text-white" style={{textShadow: '3px 3px 6px rgba(0,0,0,0.9), 0 0 20px rgba(255,215,0,0.5)'}}>
+                    <div className="text-base font-bold text-[#FFD700] mb-2 tracking-wider" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>PHẦN 2</div>
+                    <h2 className="text-3xl font-bold text-white" style={{textShadow: '3px 3px 6px rgba(0,0,0,0.9), 0 0 20px rgba(255,215,0,0.5)'}}>
                       NHẬN DIỆN "KẺ THÙ" – GIẶC NỘI XÂM LÀ AI?
                     </h2>
                   </div>
@@ -487,7 +487,7 @@ export default function PresentationPage() {
                 </div>
               </div>
 
-              <div className="bg-yellow-50 border-2 border-[#FFD700] p-6 rounded-xl">
+              <div className="bg-yellow-50/90 backdrop-blur-sm border-2 border-[#FFD700] p-6 rounded-xl">
                 <h3 className="text-xl font-bold text-[#b30000] mb-4">⇒ Liên hệ thực tế sinh viên – "Chiến trường" sát nhất</h3>
                 <ul className="list-disc list-inside space-y-2 text-black font-semibold">
                   <li><strong>Lãng phí:</strong> thời gian trôi qua trên game, mạng xã hội, "lướt TikTok cả ngày".</li>
@@ -502,7 +502,7 @@ export default function PresentationPage() {
             </section>
 
             <section id="section3" className="fade-in-section mb-16 relative">
-              <div className="absolute -right-4 top-0 hidden xl:block">
+              <div className="absolute top-0 hidden xl:block" style={{right: '-200px'}}>
                 <div className="sticky top-24">
                   <button
                     onClick={() => setActiveChatBot(activeChatBot === 3 ? null : 3)}
@@ -551,8 +551,8 @@ export default function PresentationPage() {
                 <div className="relative z-10 flex items-center gap-4">
                   <div className="text-6xl">⚔️</div>
                   <div>
-                    <div className="text-lg font-black text-[#FFD700] mb-2 tracking-wider" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>PHẦN 3</div>
-                    <h2 className="text-4xl font-black text-white" style={{textShadow: '3px 3px 6px rgba(0,0,0,0.9), 0 0 20px rgba(255,215,0,0.5)'}}>
+                    <div className="text-base font-bold text-[#FFD700] mb-2 tracking-wider" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>PHẦN 3</div>
+                    <h2 className="text-3xl font-bold text-white" style={{textShadow: '3px 3px 6px rgba(0,0,0,0.9), 0 0 20px rgba(255,215,0,0.5)'}}>
                       VŨ KHÍ CHIẾN ĐẤU – "PHÒ CHÍNH TRỪ TÀ" & ĐỜI SỐNG MỚI
                     </h2>
                   </div>
@@ -576,7 +576,7 @@ export default function PresentationPage() {
                 </p>
               </div>
 
-              <div className="bg-yellow-50 p-6 rounded-xl mb-6">
+              <div className="bg-yellow-50/90 backdrop-blur-sm p-6 rounded-xl mb-6">
                 <h4 className="text-xl font-bold text-[#b30000] mb-3">PHÒ CHÍNH: xây dựng cái đẹp</h4>
                 <ul className="list-disc list-inside space-y-2 text-black font-semibold">
                   <li>Biểu dương người tốt</li>
@@ -631,7 +631,7 @@ export default function PresentationPage() {
             </section>
 
             <section id="section4" className="fade-in-section mb-16 relative">
-              <div className="absolute -right-4 top-0 hidden xl:block">
+              <div className="absolute top-0 hidden xl:block" style={{right: '-200px'}}>
                 <div className="sticky top-24">
                   <button
                     onClick={() => setActiveChatBot(activeChatBot === 4 ? null : 4)}
@@ -672,7 +672,7 @@ export default function PresentationPage() {
                 </div>
               </div>
               <div className="h-1 bg-gradient-to-r from-[#FFD700] to-[#b30000] rounded-full mb-8"></div>
-              <h2 className="text-4xl font-black text-[#b30000] mb-6" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.2)'}}>
+              <h2 className="text-3xl font-bold text-[#b30000] mb-6" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.2)'}}>
                 PHẦN 4: VẬN DỤNG THỰC TIỄN – HÀNH ĐỘNG CỦA SINH VIÊN
               </h2>
               <p className="text-black font-semibold leading-relaxed mb-6">
@@ -723,7 +723,7 @@ export default function PresentationPage() {
             </section>
 
             <section id="section5" className="fade-in-section mb-16 relative">
-              <div className="absolute -right-4 top-0 hidden xl:block">
+              <div className="absolute top-0 hidden xl:block" style={{right: '-200px'}}>
                 <div className="sticky top-24">
                   <button
                     onClick={() => setActiveChatBot(activeChatBot === 5 ? null : 5)}
@@ -764,7 +764,7 @@ export default function PresentationPage() {
                 </div>
               </div>
               <div className="h-1 bg-gradient-to-r from-[#FFD700] to-[#b30000] rounded-full mb-8"></div>
-              <h2 className="text-4xl font-black text-[#b30000] mb-6" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.2)'}}>
+              <h2 className="text-3xl font-bold text-[#b30000] mb-6" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.2)'}}>
                 PHẦN 5: KẾT LUẬN – MỖI SINH VIÊN LÀ MỘT CHIẾN SĨ
               </h2>
               <div className="bg-[#FFD700]/10 border-l-4 border-[#FFD700] p-6 rounded-r-lg mb-6">
@@ -796,7 +796,7 @@ export default function PresentationPage() {
 
             <section id="section6" className="fade-in-section mb-16">
               <div className="h-1 bg-gradient-to-r from-[#FFD700] to-[#b30000] rounded-full mb-8"></div>
-              <h2 className="text-4xl font-black text-[#b30000] mb-6" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.2)'}}>
+              <h2 className="text-3xl font-bold text-[#b30000] mb-6" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.2)'}}>
                 PHẦN 6: TÀI LIỆU THAM KHẢO & TRÍCH DẪN
               </h2>
 
@@ -807,7 +807,7 @@ export default function PresentationPage() {
                 Nguồn tư liệu và trích dẫn sử dụng trong bài trình chiếu
               </p>
 
-              <div className="bg-gray-50 p-6 rounded-xl mb-8">
+              <div className="bg-gray-50/90 backdrop-blur-sm p-6 rounded-xl mb-8">
                 <ol className="list-decimal list-inside space-y-3 text-gray-900 font-medium">
                   <li>Hồ Chí Minh toàn tập — Tập 5, 10, 12 — Nhà xuất bản Chính trị quốc gia, Hà Nội</li>
                   <li>Tư tưởng Hồ Chí Minh về văn hóa — Viện nghiên cứu tư tưởng Hồ Chí Minh</li>
