@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, BookOpen, Shield } from 'lucide-react';
+import { ArrowLeft, BookOpen, Shield, MessageCircle, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function PresentationPage() {
@@ -7,6 +7,40 @@ export default function PresentationPage() {
   const [soldierPosition, setSoldierPosition] = useState(0);
   const [isJumping, setIsJumping] = useState(false);
   const [currentSection, setCurrentSection] = useState(0);
+  const [activeChatBot, setActiveChatBot] = useState<number | null>(null);
+
+  const culturalBotMessages: { [key: number]: string[] } = {
+    1: [
+      '🎓 Xin chào! Tôi là trợ lý văn hóa của Bác Hồ.',
+      '📚 Bạn muốn hiểu thêm về chính sách văn hóa thực dân?',
+      '💡 Tại sao văn hóa được gọi là "mặt trận"?',
+      '🌟 Hỏi tôi bất cứ điều gì về phần này!'
+    ],
+    2: [
+      '⚠️ Giặc nội xâm là kẻ thù vô hình!',
+      '🔍 4 nhóm giặc: Tham ô, Lười biếng, Phù hoa, Nô lệ',
+      '💭 Bạn nhận ra giặc nào trong bản thân mình?',
+      '🤔 Đặt câu hỏi để hiểu rõ hơn nhé!'
+    ],
+    3: [
+      '⚔️ Vũ khí chống giặc: Phò chính trừ tà!',
+      '✨ Cần - Kiệm - Liêm - Chính',
+      '🏗️ Xây dựng đời sống mới từ hôm nay',
+      '💬 Cần giải thích thêm không?'
+    ],
+    4: [
+      '🎯 Sinh viên hành động như thế nào?',
+      '💼 Thái độ chuyên nghiệp trong học tập',
+      '🌐 Giữ bản lĩnh trên không gian mạng',
+      '🇻🇳 Hòa nhập nhưng không hòa tan!'
+    ],
+    5: [
+      '🎖️ Mỗi sinh viên là một chiến sĩ!',
+      '💪 Chiến thắng bản thân mỗi ngày',
+      '🌱 Từng quyết định nhỏ đều quan trọng',
+      '🔥 Sẵn sàng chiến đấu chưa?'
+    ]
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -134,7 +168,48 @@ export default function PresentationPage() {
           </div>
 
           <article className="prose prose-lg max-w-none">
-            <section id="section1" className="fade-in-section mb-16">
+            <section id="section1" className="fade-in-section mb-16 relative">
+              <div className="absolute -right-4 top-0 hidden xl:block">
+                <div className="sticky top-24">
+                  <button
+                    onClick={() => setActiveChatBot(activeChatBot === 1 ? null : 1)}
+                    className="cultural-bot-button group relative"
+                  >
+                    <div className="w-32 h-40 bg-gradient-to-b from-[#FFD700] via-[#FFA500] to-[#FF8C00] rounded-2xl shadow-2xl hover:shadow-3xl transition-all hover:scale-105 relative overflow-hidden">
+                      <div className="absolute top-3 left-1/2 -translate-x-1/2 w-16 h-16 bg-[#8B4513] rounded-full border-4 border-[#654321]"></div>
+                      <div className="absolute top-6 left-1/2 -translate-x-1/2 w-12 h-3 bg-[#b30000] rounded-full"></div>
+                      <div className="absolute top-12 left-1/2 -translate-x-1/2 text-2xl">📖</div>
+                      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-20 h-16 bg-[#FFD700] rounded-lg flex items-center justify-center">
+                        <BookOpen size={24} className="text-[#b30000]" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2 text-center text-xs font-bold text-[#8B4513]">VĂN HÓA</div>
+                    </div>
+                    <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-[#b30000] rounded-full flex items-center justify-center shadow-lg animate-bounce">
+                      <MessageCircle size={20} className="text-white" />
+                    </div>
+                  </button>
+                  {activeChatBot === 1 && (
+                    <div className="mt-4 w-64 bg-white rounded-2xl shadow-2xl p-4 border-4 border-[#FFD700] animate-fade-in">
+                      <div className="flex justify-between items-center mb-3 pb-3 border-b-2 border-[#FFD700]">
+                        <h4 className="font-bold text-[#b30000] flex items-center gap-2">
+                          <BookOpen size={16} />
+                          Trợ Lý Văn Hóa
+                        </h4>
+                        <button onClick={() => setActiveChatBot(null)} className="text-gray-500 hover:text-[#b30000]">
+                          <X size={16} />
+                        </button>
+                      </div>
+                      <div className="space-y-2 text-sm text-gray-700">
+                        {culturalBotMessages[1].map((msg, i) => (
+                          <div key={i} className="bg-[#FFD700]/10 p-2 rounded-lg hover:bg-[#FFD700]/20 transition-colors">
+                            {msg}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
               <div className="h-1 bg-gradient-to-r from-[#FFD700] to-[#b30000] rounded-full mb-8"></div>
               <h2 className="text-3xl font-bold text-[#b30000] mb-6">
                 PHẦN 1: DẪN NHẬP – TỪ BỐI CẢNH LỊCH SỬ ĐẾN NHIỆM VỤ THỜI ĐẠI
@@ -175,7 +250,48 @@ export default function PresentationPage() {
               </p>
             </section>
 
-            <section id="section2" className="fade-in-section mb-16">
+            <section id="section2" className="fade-in-section mb-16 relative">
+              <div className="absolute -right-4 top-0 hidden xl:block">
+                <div className="sticky top-24">
+                  <button
+                    onClick={() => setActiveChatBot(activeChatBot === 2 ? null : 2)}
+                    className="cultural-bot-button group relative"
+                  >
+                    <div className="w-32 h-40 bg-gradient-to-b from-[#DC143C] via-[#b30000] to-[#8B0000] rounded-2xl shadow-2xl hover:shadow-3xl transition-all hover:scale-105 relative overflow-hidden">
+                      <div className="absolute top-3 left-1/2 -translate-x-1/2 w-16 h-16 bg-[#8B4513] rounded-full border-4 border-[#654321]"></div>
+                      <div className="absolute top-6 left-1/2 -translate-x-1/2 w-12 h-3 bg-white rounded-full"></div>
+                      <div className="absolute top-12 left-1/2 -translate-x-1/2 text-2xl">⚔️</div>
+                      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-20 h-16 bg-[#FFD700] rounded-lg flex items-center justify-center">
+                        <Shield size={24} className="text-[#b30000]" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2 text-center text-xs font-bold text-white">CHIẾN SĨ</div>
+                    </div>
+                    <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-[#FFD700] rounded-full flex items-center justify-center shadow-lg animate-bounce">
+                      <MessageCircle size={20} className="text-[#b30000]" />
+                    </div>
+                  </button>
+                  {activeChatBot === 2 && (
+                    <div className="mt-4 w-64 bg-white rounded-2xl shadow-2xl p-4 border-4 border-[#b30000] animate-fade-in">
+                      <div className="flex justify-between items-center mb-3 pb-3 border-b-2 border-[#b30000]">
+                        <h4 className="font-bold text-[#b30000] flex items-center gap-2">
+                          <Shield size={16} />
+                          Trợ Lý Chiến Sĩ
+                        </h4>
+                        <button onClick={() => setActiveChatBot(null)} className="text-gray-500 hover:text-[#b30000]">
+                          <X size={16} />
+                        </button>
+                      </div>
+                      <div className="space-y-2 text-sm text-gray-700">
+                        {culturalBotMessages[2].map((msg, i) => (
+                          <div key={i} className="bg-[#b30000]/10 p-2 rounded-lg hover:bg-[#b30000]/20 transition-colors">
+                            {msg}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
               <div className="h-1 bg-gradient-to-r from-[#FFD700] to-[#b30000] rounded-full mb-8"></div>
               <h2 className="text-3xl font-bold text-[#b30000] mb-6">
                 PHẦN 2: NHẬN DIỆN "KẺ THÙ" – GIẶC NỘI XÂM LÀ AI?
@@ -260,7 +376,47 @@ export default function PresentationPage() {
               </div>
             </section>
 
-            <section id="section3" className="fade-in-section mb-16">
+            <section id="section3" className="fade-in-section mb-16 relative">
+              <div className="absolute -right-4 top-0 hidden xl:block">
+                <div className="sticky top-24">
+                  <button
+                    onClick={() => setActiveChatBot(activeChatBot === 3 ? null : 3)}
+                    className="cultural-bot-button group relative"
+                  >
+                    <div className="w-32 h-40 bg-gradient-to-b from-[#32CD32] via-[#228B22] to-[#006400] rounded-2xl shadow-2xl hover:shadow-3xl transition-all hover:scale-105 relative overflow-hidden">
+                      <div className="absolute top-3 left-1/2 -translate-x-1/2 w-16 h-16 bg-[#8B4513] rounded-full border-4 border-[#654321]"></div>
+                      <div className="absolute top-6 left-1/2 -translate-x-1/2 w-12 h-3 bg-[#b30000] rounded-full"></div>
+                      <div className="absolute top-12 left-1/2 -translate-x-1/2 text-2xl">✨</div>
+                      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-20 h-16 bg-[#FFD700] rounded-lg flex items-center justify-center text-2xl">
+                        ⚖️
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2 text-center text-xs font-bold text-white">CHÍNH TRỪ TÀ</div>
+                    </div>
+                    <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-[#FFD700] rounded-full flex items-center justify-center shadow-lg animate-bounce">
+                      <MessageCircle size={20} className="text-[#006400]" />
+                    </div>
+                  </button>
+                  {activeChatBot === 3 && (
+                    <div className="mt-4 w-64 bg-white rounded-2xl shadow-2xl p-4 border-4 border-[#228B22] animate-fade-in">
+                      <div className="flex justify-between items-center mb-3 pb-3 border-b-2 border-[#228B22]">
+                        <h4 className="font-bold text-[#006400] flex items-center gap-2">
+                          ⚖️ Trợ Lý Đạo Đức
+                        </h4>
+                        <button onClick={() => setActiveChatBot(null)} className="text-gray-500 hover:text-[#006400]">
+                          <X size={16} />
+                        </button>
+                      </div>
+                      <div className="space-y-2 text-sm text-gray-700">
+                        {culturalBotMessages[3].map((msg, i) => (
+                          <div key={i} className="bg-[#228B22]/10 p-2 rounded-lg hover:bg-[#228B22]/20 transition-colors">
+                            {msg}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
               <div className="h-1 bg-gradient-to-r from-[#FFD700] to-[#b30000] rounded-full mb-8"></div>
               <h2 className="text-3xl font-bold text-[#b30000] mb-6">
                 PHẦN 3: VŨ KHÍ CHIẾN ĐẤU – "PHÒ CHÍNH TRỪ TÀ" & ĐỜI SỐNG MỚI
@@ -337,7 +493,47 @@ export default function PresentationPage() {
               </div>
             </section>
 
-            <section id="section4" className="fade-in-section mb-16">
+            <section id="section4" className="fade-in-section mb-16 relative">
+              <div className="absolute -right-4 top-0 hidden xl:block">
+                <div className="sticky top-24">
+                  <button
+                    onClick={() => setActiveChatBot(activeChatBot === 4 ? null : 4)}
+                    className="cultural-bot-button group relative"
+                  >
+                    <div className="w-32 h-40 bg-gradient-to-b from-[#4169E1] via-[#1E90FF] to-[#0000CD] rounded-2xl shadow-2xl hover:shadow-3xl transition-all hover:scale-105 relative overflow-hidden">
+                      <div className="absolute top-3 left-1/2 -translate-x-1/2 w-16 h-16 bg-[#8B4513] rounded-full border-4 border-[#654321]"></div>
+                      <div className="absolute top-6 left-1/2 -translate-x-1/2 w-12 h-3 bg-[#b30000] rounded-full"></div>
+                      <div className="absolute top-12 left-1/2 -translate-x-1/2 text-2xl">🎓</div>
+                      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-20 h-16 bg-[#FFD700] rounded-lg flex items-center justify-center text-2xl">
+                        💼
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2 text-center text-xs font-bold text-white">SINH VIÊN</div>
+                    </div>
+                    <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-[#FFD700] rounded-full flex items-center justify-center shadow-lg animate-bounce">
+                      <MessageCircle size={20} className="text-[#0000CD]" />
+                    </div>
+                  </button>
+                  {activeChatBot === 4 && (
+                    <div className="mt-4 w-64 bg-white rounded-2xl shadow-2xl p-4 border-4 border-[#1E90FF] animate-fade-in">
+                      <div className="flex justify-between items-center mb-3 pb-3 border-b-2 border-[#1E90FF]">
+                        <h4 className="font-bold text-[#0000CD] flex items-center gap-2">
+                          🎓 Trợ Lý Sinh Viên
+                        </h4>
+                        <button onClick={() => setActiveChatBot(null)} className="text-gray-500 hover:text-[#0000CD]">
+                          <X size={16} />
+                        </button>
+                      </div>
+                      <div className="space-y-2 text-sm text-gray-700">
+                        {culturalBotMessages[4].map((msg, i) => (
+                          <div key={i} className="bg-[#1E90FF]/10 p-2 rounded-lg hover:bg-[#1E90FF]/20 transition-colors">
+                            {msg}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
               <div className="h-1 bg-gradient-to-r from-[#FFD700] to-[#b30000] rounded-full mb-8"></div>
               <h2 className="text-3xl font-bold text-[#b30000] mb-6">
                 PHẦN 4: VẬN DỤNG THỰC TIỄN – HÀNH ĐỘNG CỦA SINH VIÊN
@@ -389,7 +585,47 @@ export default function PresentationPage() {
               </div>
             </section>
 
-            <section id="section5" className="fade-in-section mb-16">
+            <section id="section5" className="fade-in-section mb-16 relative">
+              <div className="absolute -right-4 top-0 hidden xl:block">
+                <div className="sticky top-24">
+                  <button
+                    onClick={() => setActiveChatBot(activeChatBot === 5 ? null : 5)}
+                    className="cultural-bot-button group relative"
+                  >
+                    <div className="w-32 h-40 bg-gradient-to-b from-[#FFD700] via-[#FFA500] to-[#FF6347] rounded-2xl shadow-2xl hover:shadow-3xl transition-all hover:scale-105 relative overflow-hidden border-4 border-[#b30000]">
+                      <div className="absolute top-3 left-1/2 -translate-x-1/2 w-16 h-16 bg-[#8B4513] rounded-full border-4 border-[#654321]"></div>
+                      <div className="absolute top-6 left-1/2 -translate-x-1/2 w-12 h-3 bg-[#b30000] rounded-full"></div>
+                      <div className="absolute top-12 left-1/2 -translate-x-1/2 text-2xl">🏆</div>
+                      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-20 h-16 bg-[#b30000] rounded-lg flex items-center justify-center text-2xl">
+                        💪
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2 text-center text-xs font-bold text-white bg-[#b30000] py-1 rounded">CHIẾN THẮNG</div>
+                    </div>
+                    <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-[#b30000] rounded-full flex items-center justify-center shadow-lg animate-bounce">
+                      <MessageCircle size={20} className="text-white" />
+                    </div>
+                  </button>
+                  {activeChatBot === 5 && (
+                    <div className="mt-4 w-64 bg-white rounded-2xl shadow-2xl p-4 border-4 border-[#FFD700] animate-fade-in">
+                      <div className="flex justify-between items-center mb-3 pb-3 border-b-2 border-[#FFD700]">
+                        <h4 className="font-bold text-[#b30000] flex items-center gap-2">
+                          🏆 Trợ Lý Chiến Thắng
+                        </h4>
+                        <button onClick={() => setActiveChatBot(null)} className="text-gray-500 hover:text-[#b30000]">
+                          <X size={16} />
+                        </button>
+                      </div>
+                      <div className="space-y-2 text-sm text-gray-700">
+                        {culturalBotMessages[5].map((msg, i) => (
+                          <div key={i} className="bg-[#FFD700]/20 p-2 rounded-lg hover:bg-[#FFD700]/30 transition-colors">
+                            {msg}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
               <div className="h-1 bg-gradient-to-r from-[#FFD700] to-[#b30000] rounded-full mb-8"></div>
               <h2 className="text-3xl font-bold text-[#b30000] mb-6">
                 PHẦN 5: KẾT LUẬN – MỖI SINH VIÊN LÀ MỘT CHIẾN SĨ
